@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Captcha JS Example</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+           .captcha {
+               background-color: lightsteelblue;
+               padding: 10px;
+               display: flex;
+               flex-direction: column;
+               align-items: flex-end;
+           }
+
+           .captcha-canvas-wrapper {
+               display: flex;
+               flex-direction: row;
+           }
+
+           .captcha-canvas {
+               background-color: #fff;
+           }
+
+           .captcha-button {
+               border: 1px solid dimgray;
+               border-radius: 4px;
+               background-color: transparent;
+               font-weight: bold;
+               padding: 5px;
+               cursor: pointer;
+               transition: 0.3s;
+           }
+
+           .captcha-button:hover {
+               background-color: #fff;
+           }
+
+           .captcha-button-change {
+               width: 32px;
+               height: 32px;
+           }
+
+           .captcha-input {
+               padding: 5px;
+               border: 1px solid #eee;
+               border-radius: 4px;
+           }
+
+           .captcha-message {
+               padding: 5px;
+           }
+
+           .message-error {
+               color: red;
+           }
+
+           .message-success {
+               color: green;
+           }
+
+           .col {
+                display: flex;
+                flex-direction: column;
+           }
+
+           .align-items-end {
+               justify-content: flex-end;
+           }
+
+           footer {
+                margin-top: 20px;
+                padding-bottom: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                color: #999;
+            }
+
+            .author {
+                margin-top: 10px;
+                font-weight: 700;
+                color: black;
+            }
+
+            .year {
+                width: 70px;
+                height: 30px;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-right: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #333;
+                border-radius: 15px;
+                font-weight: 700;
+                font-size: .8em;
+                color: #e1e1e1;
+            }
+
+            .profile-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile {
+                border: 10px solid #eee;
+                border-radius: 50%;
+                margin-left: 10px;
+                margin-right: 10px;
+                transition: 0.2s;
+            }
+
+            .profile:hover {
+                transform: scale(1.2);
+            }
+
+            .repo {
+                margin-top: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .repo .fa-github {
+                font-size: 1.6em;
+                color: black;
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container">
+
+        </div>
+
+        <footer>
+            <div class="profile-container">
+                <a href="https://github.com/santanafelipe98" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/u/40870705?s=60&u=bba941bc4c8d40c118662163846e97987b2d3ef4&v=4" alt="profile" class="profile">
+                </a>
+                <span class="author">Felipe Santana</span>
+            </div>
+
+            
+
+            <div class="repo">
+                <span class="year">2021</span>
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/santanafelipe98" target="_blank">view repo</a> <!-- Project repo -->
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        <script>
+            const canvas = buildComponent({
+                submit: (err) => {
+                    if (!err) {
+                        console.log('OK');
+                    }
+                }
+            });
+
+            const container = document.getElementById('container');
+            container.append(canvas);
+        </script>
+    </body>
+</html>
